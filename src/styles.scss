@@ -1,6 +1,8 @@
 // PrimeNg CSS
+@import url('../node_modules/primeflex/primeflex.css');
 @import url('../node_modules/primeicons/primeicons.css');
 @import url('../node_modules/primeng/resources/themes/luna-pink/theme.css');
 @import url('../node_modules/primeng/resources/primeng.min.css');
 
 // Custom CSS
+@import url('./styles/general.scss');
