@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   imports: [
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    RippleModule
   ],
   exports: [
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    RippleModule
   ],
 })
 
