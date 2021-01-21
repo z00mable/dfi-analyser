@@ -7,12 +7,12 @@ import { RippleModule } from 'primeng/ripple';
   imports: [
     ButtonModule,
     InputTextModule,
-    RippleModule
+    RippleModule,
   ],
   exports: [
     ButtonModule,
     InputTextModule,
-    RippleModule
+    RippleModule,
   ],
 })
 
