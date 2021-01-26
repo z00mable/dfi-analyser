@@ -1,0 +1,14 @@
+<p-table [value]="this.tokens">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Balance</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-tokens>
+    <tr>
+      <td>{{tokens.name}}</td>
+      <td>{{tokens.balance}}</td>
+    </tr>
+  </ng-template>
+</p-table>

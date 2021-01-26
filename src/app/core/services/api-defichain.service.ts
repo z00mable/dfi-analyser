@@ -27,12 +27,7 @@ export class ApiDefichainService {
     this.apiMainnetUrl = AppConfig.apiDefichainUrlMainnet;
   }
 
-  public getStats(): Observable<ApiStatsModel | null> {
-    return this.http.get<ApiStatsModel | null>(this.apiUrl + '/stats?network=mainnet&q=tokens.supply&pretty')
-      .pipe(
-        catchError(this.handleError(this.getStats.name, null))
-      );
-  }
+  // apiUrl
 
   public getAccountDetails(addressId: string): Observable<string[] | null> {
     return this.http.get<string[] | null>(this.apiUrl + '/getaccount?owner=' + addressId)
@@ -40,6 +35,15 @@ export class ApiDefichainService {
         catchError(this.handleError(this.getAccountDetails.name, null))
       );
   }
+
+  public getStats(): Observable<ApiStatsModel | null> {
+    return this.http.get<ApiStatsModel | null>(this.apiUrl + '/stats?network=mainnet&q=tokens.supply&pretty')
+      .pipe(
+        catchError(this.handleError(this.getStats.name, null))
+      );
+  }
+
+  // apiMainnetUrl
 
   public getAddressDetails(addressId: string): Observable<ApiAddressModel[] | null> {
     return this.http.get<ApiAddressModel[] | null>(this.apiMainnetUrl + '/address/' + addressId)
@@ -55,6 +59,13 @@ export class ApiDefichainService {
       );
   }
 
+  public getBlockHashDetails(blockHashId: string): Observable<ApiBlockHashModel[] | null> {
+    return this.http.get<ApiBlockHashModel[] | null>(this.apiMainnetUrl + '/block/' + blockHashId)
+      .pipe(
+        catchError(this.handleError(this.getBlockHashDetails.name, null))
+      );
+  }
+
   public getTransactionDetails(txId: string): Observable<ApiTxModel[] | null> {
     return this.http.get<ApiTxModel[] | null>(this.apiMainnetUrl + '/tx/' + txId)
       .pipe(
@@ -66,13 +77,6 @@ export class ApiDefichainService {
     return this.http.get<ApiTxModel[] | null>(this.apiMainnetUrl + '/tx?blockHash=' + blockHashId)
       .pipe(
         catchError(this.handleError(this.getTransactionDetailsForBlockHash.name, null))
-      );
-  }
-
-  public getBlockHashDetails(blockHashId: string): Observable<ApiBlockHashModel[] | null> {
-    return this.http.get<ApiBlockHashModel[] | null>(this.apiMainnetUrl + '/block/' + blockHashId)
-      .pipe(
-        catchError(this.handleError(this.getBlockHashDetails.name, null))
       );
   }
 }
